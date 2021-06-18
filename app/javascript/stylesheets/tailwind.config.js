@@ -22,10 +22,12 @@ module.exports = {
       red: colors.red,
       yellow: colors.amber,
       green: colors.emerald,
+      orange: colors.orange, 
       blue: colors.blue,
       indigo: colors.indigo,
       purple: colors.violet,
       pink: colors.pink,
+      rose: colors.rose
     },
     spacing: {
       px: '1px',
