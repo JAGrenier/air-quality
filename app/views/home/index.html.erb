@@ -1,4 +1,24 @@
-<div class="container mx-auto <%= @api_color %>">
-  <p>Tool to look up air quality</p>
-  <%= @final_output %>
-</div>
+<main>
+  <div class="grid grid-cols-8 justify-items-center ">
+        <form class="col-start-3 col-span-4 mb-4">
+          <label> Update Zipcode 
+            <input class="border" name="zip_code"> 
+            </input>
+          </label>
+          <button type="submit" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+            Search
+          </button>
+        </form>
+        <div class="<%= @api_color %> col-start-2 col-span-6 grid grid-cols-3 p-10 space-x-3 w-full rounded-lg">
+          <h2 >
+            <%= @final_output %>
+          </h2>
+          <p>
+            <%= @reporting_area%>
+          </p>
+          <p class="text-sm">
+            <%= @description%>
+          </p>
+        </div> 
+      </div>
+</main>

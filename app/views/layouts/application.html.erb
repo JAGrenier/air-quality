@@ -17,26 +17,13 @@
           <span class="text-xl">Air Quality</span>
         </a>
         <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-900">First Link</a>
+          <%# <a class="mr-5 hover:text-gray-900">First Link</a>
           <a class="mr-5 hover:text-gray-900">Second Link</a>
           <a class="mr-5 hover:text-gray-900">Third Link</a>
-          <a class="mr-5 hover:text-gray-900">Fourth Link</a>
+          <a class="mr-5 hover:text-gray-900">Fourth Link</a> %>
         </nav>
       </div>
     </header>
-    
-      <div class="grid grid-cols-3">
-        <form class="col-start-2 mb-4">
-          <label> Update Zipcode 
-            <input type="text" name="zip_code"> 
-            </input>
-          </label>
-          <button type="submit" class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-            Search
-          </button>
-        </form>
-      </div>
-    
     <%= yield %>
   </body>
 </html>
