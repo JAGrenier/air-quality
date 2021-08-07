@@ -5,21 +5,29 @@ class HomeController < ApplicationController
 
     @zip_code = params['zip_code'] || 80226
 
+    puts @zip_code
+
     @url = "https://www.airnowapi.org/aq/observation/zipCode/current/?format=application/json&zipCode=#{@zip_code}&distance=0&API_KEY=D9063C5B-5536-4936-B684-DF396C3E2295"
     @uri = URI(@url)
     @response = Net::HTTP.get(@uri)
     @output = JSON.parse(@response)
-    @reporting_area = @output[0]['ReportingArea']
 
     if @output.empty? 
       @final_output = 'Error'
+      @reporting_area = @zip_code
     elsif !@output 
       @final_output = 'Error'
+      @reporting_area = @zip_code
     else
       @final_output = @output[0]['AQI']
-    end
+      @reporting_area = @output[0]['ReportingArea']
+    end   
 
-    if @final_output <= 50 
+  
+    if @final_output == 'Error'
+      @api_color = 'bg-gray-300'
+      @description = "An Error has occured, that may be due to the airNow API not having data for #{@zip_code}"
+    elsif @final_output <= 50 
       @api_color = 'bg-green-300'
       @description = 'Good: Air quality is satisfactory, and air pollution poses little or no risk.'
     elsif @final_output >= 51 && @final_output <= 100 
